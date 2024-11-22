@@ -1,38 +1,170 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root {
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --background: #f9fafb;
+  --primary: #4a90e2;
+  --income: #00c853;
+  --expense: #d50000;
+  --text-dark: #333;
+  --text-light: #555;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-dark);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 420px;
+  margin: 20px;
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+  padding: 30px;
+}
+
+#transaction_prompt{
+  text-align: left;
+  border-bottom: none;
+  border-top: 2px solid #e0e0e0;
+  padding: 2px;
+  margin:0;
+  padding-top: 15px;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 15px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h3 {
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h4 {
+  font-weight: 500;
+  color: var(--text-light);
+  text-transform: uppercase;
+  margin-bottom: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.inc-exp-container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.inc-exp-container > div {
+  background-color: #f4f6f8;
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  flex: 1;
+  box-shadow: var(--box-shadow);
+}
+
+.money {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.money.plus {
+  color: var(--income);
+}
+
+.money.minus {
+  color: var(--expense);
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+input[type='text'],
+input[type='number'] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d6d6d6;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  background-color: #f9fafb;
+  color: var(--text-dark);
+}
+
+.btn {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #357ab8;
+}
+
+.list {
+  list-style: none;
+  margin-top: 15px;
+}
+
+.list li {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.list li.plus {
+  border-left: 5px solid var(--income);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list li.minus {
+  border-left: 5px solid var(--expense);
+}
+
+.delete-btn {
+  background-color: transparent;
+  color: var(--expense);
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+.delete-btn:hover {
+  color: #b71c1c;
 }
